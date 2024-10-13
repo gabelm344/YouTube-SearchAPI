@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 # Load environment variables from .env file
 load_dotenv()
-api_key = os.getenv('AIzaSyChjwmEWm_VApjJEEOkU4nRgsNIUIFrKFM')
+api_key = os.getenv('API_KEY') 
 
 def youtube_search(query):
     base_url = 'https://www.googleapis.com/youtube/v3/search'
@@ -24,5 +24,5 @@ def youtube_search(query):
     if response.status_code == 200:
         return response.json()
     else:
-        print(f"Error: Unable to fetch results")
+        print(f"Error: Unable to fetch results (Status code: {response.status_code})")
         return None
